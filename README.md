@@ -8,8 +8,10 @@ load any benchmark files, gold labels or scoring metadata.
 Training: supervised fine-tuning (SFT) only, using more than 5 million
 training examples. The training mixture combines traditional information
 retrieval (IR) data with hard examples constructed for decision-making datasets.
-Base model: [Qwen/Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B);
-the exact upstream commit was not recorded. Model weights are Apache-2.0;
+Base model: [Qwen/Qwen3.5-4B @ 851bf6e](https://huggingface.co/Qwen/Qwen3.5-4B/tree/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a).
+The reference revision is `851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a`,
+the latest upstream main checked on 2026-10-22; it is not a verified record
+of the training-time checkout. Model weights are Apache-2.0;
 this inference repository retains its MIT license.
 
 | Submission artifact | Link / revision |
