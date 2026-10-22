@@ -8,6 +8,9 @@ load any benchmark files, gold labels or scoring metadata.
 Training: supervised fine-tuning (SFT) only, using more than 5 million
 training examples. The training mixture combines traditional information
 retrieval (IR) data with hard examples constructed for decision-making datasets.
+Base model: [Qwen/Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B);
+the exact upstream commit was not recorded. Model weights are Apache-2.0;
+this inference repository retains its MIT license.
 
 | Submission artifact | Link / revision |
 |---|---|
@@ -149,13 +152,15 @@ Complete public suite 0.3: index 61.60; all 140178 scoreable requests succeeded
 official private Full score. The historical result uses its original model
 identifier and run path; the release name is Senova-4B.
 
-Historical execution: eight endpoints, 64 client workers, TP=2 / DP=4 per
+Historical execution: NVIDIA H100 80GB GPUs, eight endpoints, 64 client workers, TP=2 / DP=4 per
 endpoint, context 262144, memory fraction 0.8, at most 32 running requests per
 endpoint, disabled CUDA graphs, thinking off, unified letters, native logprobs.
-Historical GPU model and exact server package versions: TODO verify before
-submission; the recorded environment is bundled with the results. The current
-requirements describe the deployment environment, not unverified historical
-versions.
+Historical server environment: SGLang 0.5.15, Torch 2.11.0, Transformers 5.12.1,
+sglang-kernel 0.4.4 and FlashInfer 0.6.12, using Python 3.12. These versions
+were reconstructed from the environment selected by the original deployment
+script and referenced by its startup logs; installed package metadata predates
+the public run. A contemporaneous full package lockfile was not captured.
+The current requirements describe the deployment environment separately.
 
 For public reproduction, first rebuild/import the official suite as described
 in `UPSTREAM_README.md`, then use the running frontend:
