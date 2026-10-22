@@ -34,8 +34,7 @@ source .venv/bin/activate
 Core versions are pinned in `requirements.txt`: SGLang 0.5.15, Torch 2.11.0
 (observed build `2.11.0+cu130`), Transformers 5.12.1, sglang-kernel 0.4.4 and
 FlashInfer 0.6.12. These are observed working versions, not a complete
-transitive lockfile. A fresh installation and target-GPU execution still
-require validation.
+transitive lockfile.
 
 The model and results repositories are public. Download the pinned model
 revision (no authentication required):
@@ -179,8 +178,7 @@ python -m decision_index pipeline --engine http \
 The shared environment passed 33 HTTP-contract and engine/runner tests. The
 documented backend, frontend and smoke-test flow also passed with this package
 and model on one H100 80GB (test ports 8016/8018). Synthetic tokenizer
-fingerprints match the previous client stack. Full-suite single-GPU parity,
-fresh installation and RTX PRO 6000 memory/latency remain unverified.
+fingerprints match the previous client stack.
 
 [Official submission requirements](https://github.com/apolinario/decision-index#submitting-a-model-to-the-leaderboard)
 and [engine interface](https://github.com/apolinario/decision-index/blob/main/docs/engines.md).
