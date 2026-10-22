@@ -6,7 +6,8 @@ The same endpoint serves public and private evaluation inputs; it does not
 load any benchmark files, gold labels or scoring metadata.
 
 Training: supervised fine-tuning (SFT) only, using more than 5 million
-training examples.
+training examples. The training mixture combines traditional information
+retrieval (IR) data with hard examples constructed for decision-making datasets.
 
 | Submission artifact | Link / revision |
 |---|---|
@@ -31,8 +32,7 @@ FlashInfer 0.6.12. These are observed working versions, not a complete
 transitive lockfile. A fresh installation and target-GPU execution still
 require validation.
 
-The model repository is public. The results dataset must also be made public
-or accessible to maintainers before submission. Download the pinned model
+The model and results repositories are public. Download the pinned model
 revision (no authentication required):
 
 ```bash
