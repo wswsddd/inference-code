@@ -5,11 +5,14 @@ and returns typed answers with probabilities through `POST /v1/systemone`.
 The same endpoint serves public and private evaluation inputs; it does not
 load any benchmark files, gold labels or scoring metadata.
 
+Training: supervised fine-tuning (SFT) only, using more than 5 million
+training examples.
+
 | Submission artifact | Link / revision |
 |---|---|
-| Model weights and tokenizer | [WangSenQWQ/Senova-4B](https://huggingface.co/WangSenQWQ/Senova-4B); exact revision to be recorded after upload |
-| Inference code | TODO: GitHub repo and exact commit |
-| Complete public results | [scores.json](https://huggingface.co/datasets/WangSenQWQ/Senova-4B-decision-index-results/blob/main/runs/qwen3.5_4b_pointwise_v53_full_ck1047/scores.json) |
+| Model weights and tokenizer | [WangSenQWQ/Senova-4B](https://huggingface.co/WangSenQWQ/Senova-4B/tree/58bcb8a28cff3453b1fc401ae79beca3742601c8); revision `58bcb8a28cff3453b1fc401ae79beca3742601c8` |
+| Inference code | [wswsddd/inference-code](https://github.com/wswsddd/inference-code); use the exact commit linked in the submission entry |
+| Complete public results | [scores.json](https://huggingface.co/datasets/WangSenQWQ/Senova-4B-decision-index-results/blob/e9974586ec8b122ce5129bf714f5f8ba3a547bc7/runs/qwen3.5_4b_pointwise_v53_full_ck1047/scores.json) |
 
 ## 1. Install and download
 
@@ -28,9 +31,17 @@ FlashInfer 0.6.12. These are observed working versions, not a complete
 transitive lockfile. A fresh installation and target-GPU execution still
 require validation.
 
-Download the model from the linked HF repository at its submitted revision.
-For a gated/private repo, authenticate with `hf auth login` using access granted
-by the author. Use the same downloaded directory for both commands below.
+The model repository is public. The results dataset must also be made public
+or accessible to maintainers before submission. Download the pinned model
+revision (no authentication required):
+
+```bash
+hf download WangSenQWQ/Senova-4B \
+  --revision 58bcb8a28cff3453b1fc401ae79beca3742601c8 \
+  --local-dir /path/to/model
+```
+
+Use the same downloaded directory for both commands below.
 
 ## 2. Start inference
 
